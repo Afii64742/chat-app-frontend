@@ -46,7 +46,11 @@ const ChatRoom = () => {
   useEffect(() => {
     fetchUsersData();
     fetchMyProfileData();
-  }, []);
+  }, [fetchUsersData]);
+
+  useEffect(() => {
+    fetchMyProfileData()
+  }, [myProfileData]);
 
   useEffect(() => {
     if (!selectedUser) return;

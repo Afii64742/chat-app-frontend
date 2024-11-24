@@ -12,14 +12,19 @@ const UsersList = ({ users, myProfileData, onUserSelect }) => {
         <div className='flex flex-col gap-4'>
         {
           users.map((user) =>
-            // Changed: added a unique "key" prop to the "p" tag
+            
             <div key={user._id} className='flex items-center'> 
              <span className='relative'> <img src={`http://localhost:8080${user.profilePicture}`} alt="" className='w-12 h-12 rounded-full object-cover object-center' />
              <span
               className={`block w-3 h-3 rounded-full absolute top-0 right-0 ${user.isOnline ? 'bg-green-500' : 'bg-gray-500'}`}
             ></span>
              </span>
-              <span onClick={()=>handleUserSelect(user)} className='ml-2 text-lg'> {user.username}</span>
+             <div className='flex flex-col ml-2'>
+             <p onClick={()=>handleUserSelect(user)} className='text-lg'> {user.username}</p>
+             <p className="block text-sm text-gray-500">{user?.lastMessage?.content}</p>
+             </div>
+
+        
             </div>
           )
         }

@@ -13,10 +13,7 @@ const ChatArea = ({ selectedUser, sendMessage, messagesArr, myProfileData }) => 
     setMsg('');
   };
 
-  // Log messagesArr when it changes
-  useEffect(() => {
-    console.log('Updated messagesArr:', messagesArr);
-  }, [messagesArr]);
+
 
   return (
     <div className="flex flex-col h-full w-full border">
